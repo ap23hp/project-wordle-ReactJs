@@ -4,7 +4,7 @@ import { sample } from '../../utils';
 import { WORDS } from '../../data';
 import GuessList from '../GuessList';
 
-
+import { checkGuess } from '../../game-helpers';
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
@@ -18,7 +18,7 @@ let newGuess={guess,id:Math.random()}
 setEnteredList([...enteredList,newGuess])
    }
   return <>
-   <GuessList enteredList={enteredList} />
+   <GuessList enteredList={enteredList} answer={answer}/>
   <EnterGuessForm getEnteredGuess={getEnteredGuess}
    enterGuess={enterGuess} setEnterGuess={setEnterGuess}/>
 
